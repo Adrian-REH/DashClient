@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_two"
+    tools:context=".ActivityCliente">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtILb"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="240dp"
+
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="Proveedor ID"
+            android:padding="0sp"
+            app:helperText="*Requerido"
+
+            app:startIconDrawable="@drawable/ic_key">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPtid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtILc"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtILb"
+            android:layout_marginHorizontal="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_key"
+            app:helperText="*Requerido"
+
+            android:hint="Maquina ID">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtMtid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/ly1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtILc"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                app:helperText="*Requerido"
+                android:hint="User cliente"
+                app:startIconDrawable="@drawable/ic_account">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtuser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:hint="Password cliente"
+                app:helperText="*Requerido"
+                app:startIconDrawable="@drawable/ic_pass">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtpass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtild"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="240dp"
+            android:layout_below="@+id/ly1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:hint="Host/IP"
+            app:helperText="*Requerido"
+            android:layout_marginStart="20dp"
+            app:startIconDrawable="@drawable/ic_services">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txthost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ly1"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentRight="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_numbers"
+            app:helperText="*"
+            android:layout_marginStart="20dp"
+            android:hint="Numero ">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtmaquina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtile"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtild"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_key"
+            app:helperText="*Requerido"
+
+            android:layout_marginStart="20dp"
+            android:hint="Token ID">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txttid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btncomprobar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtild"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:onClick="ClickComprobar"
+            android:text="Generar"
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="96dp" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtila"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/txtile"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_cant_person"
+            app:helperText="*Requerido"
+
+            android:hint="Nombre y/o Apellido">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtilf"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtila"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_fecha"
+            app:helperText="*Requerido"
+
+            android:hint="Fecha">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtfecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btnfecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtila"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20dp"
+            android:onClick="ClickHora"
+            android:text="HOY"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="299dp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TxtIlz"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtilf"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:helperText="*Requerido"
+
+            android:hint="Contacto">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtcel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <Button
+            android:id="@+id/btnrestart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtIlz"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/purple_700"
+            android:onClick="clickRestaurar"
+            android:text="restaurar"
+            app:cornerRadius="20dp"
+            tools:layout_editor_absoluteX="289dp"
+            tools:layout_editor_absoluteY="610dp" />
+
+        <Button
+            android:id="@+id/btnBorrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnrestart"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#E91E1E"
+            android:onClick="ClickBorrar"
+            android:text="BORRAR"
+            app:cornerRadius="20dp"
+            tools:layout_editor_absoluteX="289dp"
+            tools:layout_editor_absoluteY="610dp" />
+
+        <Button
+            android:id="@+id/btnguardar"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/TxtIlz"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:onClick="clickGuardar"
+            android:text="Guardar"
+
+            tools:layout_editor_absoluteX="67dp"
+            tools:layout_editor_absoluteY="610dp" />
+
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

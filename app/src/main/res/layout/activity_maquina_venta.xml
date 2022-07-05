@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_two"
+    tools:context=".ActivityMaquinaVenta">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MAQUINA A VEDER"
+        android:paddingTop="5dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/orientation">
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconDrawable="@drawable/ic_money"
+                app:helperText="*Requerido"
+
+                android:hint="PRECIO">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Vtxtprecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="*Requerido"
+                    android:hint="Stock"
+                    app:startIconDrawable="@drawable/ic_machine">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Vtxtstk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:hint="NxN"
+                    app:helperText="*Requerido"
+                    app:startIconDrawable="@drawable/ic_services">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Vtxtxpx"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="*Requerido"
+                    android:hint="RAM"
+                    app:startIconDrawable="@drawable/ic_memory">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Vtxtram"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:hint="CPU"
+                    app:helperText="*Requerido"
+                    app:startIconDrawable="@drawable/ic_services">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Vtxtcpu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="*Requerido"
+                    android:hint="RED"
+                    app:startIconDrawable="@drawable/ic_red">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Vtxtred"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:hint="Soportados"
+                    app:helperText="*Requerido"
+                    app:startIconDrawable="@drawable/ic_group">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Vtxtsup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/lnt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ly13"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:onClick="clickGuardarV"
+                    android:text="GUARDAR" />
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btnrestart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtmaquina"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="@color/purple_700"
+                        android:onClick="clickRestaurarV"
+                        android:text="restaurar"
+                        app:cornerRadius="20dp"
+                        tools:layout_editor_absoluteX="289dp"
+                        tools:layout_editor_absoluteY="610dp" />
+
+                    <Button
+                        android:id="@+id/btnBorrar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/btnrestart"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="#E91E1E"
+                        android:onClick="ClickBorrarV"
+                        android:text="BORRAR"
+                        app:cornerRadius="20dp"
+                        tools:layout_editor_absoluteX="289dp"
+                        tools:layout_editor_absoluteY="610dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

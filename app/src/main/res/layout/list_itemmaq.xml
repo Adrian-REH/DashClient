@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="top">
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/RLview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtclient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/txtsop"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="40dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txtfechamaq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22/10/25"
+
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/txtprop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="propiedad"
+
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/txtmqidm"></TextView>
+
+</androidx.cardview.widget.CardView>
+
+</RelativeLayout>

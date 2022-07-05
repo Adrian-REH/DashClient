@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_three"
+    tools:context=".Fragment.FragmentAdministracion">
+
+    <TextView
+        android:id="@+id/datoenviado2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/txtRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="Proveedores"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/block"
+            android:layout_below="@+id/txtRec">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RVRecomendado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/txtocupadas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/block"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="Maquinas"
+            android:textColor="#000000"
+            android:textSize="15sp"
+ />
+
+
+        <RelativeLayout
+            android:id="@+id/Rl"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtocupadas"
+
+            android:layout_marginBottom="5dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ADMaquinas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/Txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Rl"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="Maquinas en venta"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/dif"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/Txt2"
+
+            android:layout_marginBottom="5dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ADVMaquindas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnarch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnmv"
+            android:layout_alignEnd="@+id/dif"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/purple_500"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_file"
+            android:tint="@color/white"
+            android:visibility="invisible"
+            app:backgroundTint="#00FFFFFF"
+            app:tint="@color/white">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnmv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnaddp"
+            android:layout_alignEnd="@+id/dif"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/purple_500"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_machine"
+            android:tint="@color/white"
+            android:visibility="invisible"
+            app:backgroundTint="#00FFFFFF"
+            app:tint="@color/white">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:id="@+id/btnaddp"
+            android:layout_above="@+id/btnmaq"
+            android:layout_alignEnd="@+id/dif"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@color/purple_500"
+            android:clickable="true"
+            android:layout_marginBottom="5dp"
+            android:focusable="true"
+            app:tint="@color/white"
+            app:backgroundTint="#00FFFFFF"
+            android:src="@drawable/ic_group">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnmaq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnadd"
+            android:layout_alignEnd="@+id/dif"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="-10dp"
+            android:backgroundTint="@color/purple_500"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_services"
+            android:visibility="invisible"
+            app:backgroundTint="#00FFFFFF"
+            app:rippleColor="#FFFFFF"
+            app:tint="@color/white">
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/dif"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/purple_700"
+            android:baselineAlignBottom="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="#00FFFFFF"
+            app:tint="@color/white">
+
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

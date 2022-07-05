@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_two"
+    tools:context=".ActivityProveedor">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROVEEDOR"
+        android:paddingTop="5dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtMaqData"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/orientation">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_marginHorizontal="20dp">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:startIconDrawable="@drawable/ic_key"
+                    app:helperText="*Requerido"
+
+                    android:hint="Proveedor ID">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Ptxthost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/Pbtngenerar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="ClickGenerarP"
+                    android:text="GENERAR" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="*Requerido"
+                    android:hint="User"
+                    app:startIconDrawable="@drawable/ic_account">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Ptxtuser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:hint="Password"
+                    app:helperText="*Requerido"
+                    app:startIconDrawable="@drawable/ic_pass">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Ptxtpass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="*Requerido"
+                    android:hint="N Maquina Administradas"
+                    app:startIconDrawable="@drawable/ic_numbers">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Ptxtmaquina"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:hint="Maquina comprada"
+                    app:helperText="*Requerido"
+                    app:startIconDrawable="@drawable/ic_numbers">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:id="@+id/Ptxtmaqcompradas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="*Requerido"
+                    android:hint="Clientes"
+                    app:startIconDrawable="@drawable/ic_person">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Ptxtclient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:hint="Soportados"
+                    app:helperText="*Requerido"
+                    app:startIconDrawable="@drawable/ic_group">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Ptxtsoport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+     <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+         <com.google.android.material.textfield.TextInputLayout
+             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+             android:layout_width="200dp"
+             android:layout_height="wrap_content"
+             android:layout_gravity="start"
+
+             android:hint="Mes"
+             app:startIconDrawable="@drawable/ic_person">
+
+             <com.google.android.material.textfield.TextInputEditText
+                 android:id="@+id/Ptxtclientmes"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" />
+         </com.google.android.material.textfield.TextInputLayout>
+
+         <TextView
+             android:id="@+id/txtgenerado"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:ems="5"
+
+             android:layout_gravity="center"
+             android:gravity="center"
+             android:textSize="40dp"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+
+                android:layout_marginHorizontal="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+
+                android:hint="Precio del archivo"
+                app:startIconDrawable="@drawable/ic_file">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Ptxtarch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/lnt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ly14"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/Pbtnsave"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:onClick="clickGuardarP"
+                    android:text="GUARDAR" />
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/Pbtnrestart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtmaquina"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="@color/purple_700"
+                        android:onClick="clickRestaurarP"
+                        android:text="restaurar"
+                        app:cornerRadius="20dp"
+                        tools:layout_editor_absoluteX="289dp"
+                        tools:layout_editor_absoluteY="610dp" />
+
+                    <Button
+                        android:id="@+id/PbtnBorrar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/btnrestart"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="#E91E1E"
+                        android:onClick="ClickBorrarP"
+                        android:text="BORRAR"
+                        app:cornerRadius="20dp"
+                        tools:layout_editor_absoluteX="289dp"
+                        tools:layout_editor_absoluteY="610dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

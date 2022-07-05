@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/custom_dash.xml" value="0.1495" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/custom_inpuit.xml" value="0.18" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/custom_prov.xml" value="0.1495" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/ic_add.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/ic_group.xml" value="0.1725" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/ic_services.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/splashscreen.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/splashscreen_black.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/drawable/state_color_bottom.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_cliente.xml" value="0.25" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_datos_proveedor.xml" value="0.33" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_file.xml" value="0.370018115942029" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_maquina.xml" value="0.33" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_maquina_venta.xml" value="0.25" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_proveedor.xml" value="0.33" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/activity_refresh.xml" value="0.25" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/fragment_administracion.xml" value="0.1" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/fragment_clientes.xml" value="0.25" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/fragment_dash_board.xml" value="0.18" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/list_iremprov.xml" value="0.25407608695652173" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/list_item_drop.xml" value="0.67" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/list_itemmaq.xml" value="0.33" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/layout/list_itemrecom.xml" value="0.43575418994413406" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/menu/menu.xml" value="0.33" />
+        <entry key="..\:/Users/adria/AndroidStudioProjects/AdministracionDashboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
