@@ -20,6 +20,7 @@ import com.example.administraciondashboard.Adapter.Model
 import com.example.administraciondashboard.databinding.FragmentDashBoardBinding
 
 import kotlinx.android.synthetic.main.fragment_dash_board.*
+import org.json.JSONObject
 
 
 class FragmentDashBoard : Fragment() {
@@ -34,8 +35,10 @@ class FragmentDashBoard : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val arraylis= ArrayList<ListadeProveedores>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
-        val arraylisM= ArrayList<ListadeMaquinas>()  //LISTADO DE IDENTIFICACION DE MAQUINAS
+        val arraylisCP= ArrayList<String>()
+        val arraylisCT= ArrayList<String>()
+        val arraylisC= ArrayList<String>()
+        val arraylisD= ArrayList<String>()
         val bind = FragmentDashBoardBinding.inflate(layoutInflater)
 
 
@@ -67,6 +70,37 @@ class FragmentDashBoard : Fragment() {
             { response ->
                 var jsonArray = response.getJSONArray("data")
                 bind.txtcli.setText(jsonArray.length().toString())
+                for (i in 0 until jsonArray.length()){
+                    var JSONObject=jsonArray.getJSONObject(i)
+
+
+                    if(JSONObject.getString("proveedorid").toString()=="propio"){
+                        arraylisCP.add("$i")
+                    }
+
+                        arraylisCT.add("$i")
+
+
+                }
+                //NUMERO DE CLIENTES PROPIOS
+                if (arraylisCP.size>0){
+                    bind.txtclimaq.setText(arraylisCP.size.toString())
+                    NCP =jsonArray.length()
+                }else{
+                    bind.txtclimaq.text = "0"
+
+                }
+                //NUMERO DE CLIENTES DE PROVEEDORES
+                if (arraylisCT.size>0){
+                    val numero=arraylisCT.size - arraylisCP.size
+                    bind.txtncp.setText(numero.toString())
+                    NCP =jsonArray.length()
+                }else{
+                    bind.txtncp.text = "0"
+
+                }
+
+
 
             }, { error ->
 
@@ -75,44 +109,17 @@ class FragmentDashBoard : Fragment() {
         )
         queue.add(jsonObjectRequest)
 
-        //TAREA 1 BUSCO EL NUMERO DE CLIENTES PROPIOS
-        val urlCP = "http://$URL/api/clientesedit.php?proveedorid=propio"
-        val jsonObjectRequestCP= JsonObjectRequest(
-            Request.Method.GET,urlCP,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-                bind.txtclimaq.setText(jsonArray.length().toString())
-                NCP =jsonArray.length()
-            }, { error ->
-                bind.txtclimaq.text = "0"
-
-            }
-        )
-        queue.add(jsonObjectRequestCP)
-
-        //TAREA 2 BUSCO EL NUMERO DE CLIENTES NO PROPIOS
-        val urlCNP = "http://$URL/api/clientesedit.php?clave=$id2&proveedorid=propio"
-        val jsonObjectRequestCNP= JsonObjectRequest(
-            Request.Method.GET,urlCNP,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-                bind.txtncp.setText(jsonArray.length().toString())
-                NCP =jsonArray.length()
-            }, { error ->
-                bind.txtncp.text = "0"
-
-            }
-        )
-        queue.add(jsonObjectRequestCNP)
 
 
 
         //TAREA 3 BUSCO EL NUMERO DE MAQUINAS PROPIAS QUE TIENEN CERO CLIENTES
+/*
         val urlOM = "http://$URL/api/maquinaedit.php?canclientes=0&proveedorid=propio"
         val jsonObjectRequestOM= JsonObjectRequest(
             Request.Method.GET,urlOM,null,
             { response ->
                 var jsonArray = response.getJSONArray("data")
+
                 NMPD =jsonArray.length()
                 bind.txtmqd.text =jsonArray.length().toString()
 
@@ -122,17 +129,45 @@ class FragmentDashBoard : Fragment() {
             }
         )
         queue.add(jsonObjectRequestOM)
+*/
 
+        arraylisCT.clear()
+        arraylisCP.clear()
+        bind.txtcsop.setText("")
+        bind.txtmqt.setText("")
+        bind.txtmqd.setText("")
+        soport = 0
 
 
         //TAREA 4 BUSCO EL NUMERO DE MAQUINAS PROPIAS TRABAJANDO
-        val urlMP = "http://$URL/api/maquinaedit.php?proveedorid=propio"
+        val urlMP = "http://$URL/api/maquinaedit.php?clave=$id2"
         val jsonObjectRequestMP= JsonObjectRequest(
             Request.Method.GET,urlMP,null,
             { response ->
                 var jsonArray = response.getJSONArray("data")
+                for (i in 0 until jsonArray.length()){
+                    var JSONObject=jsonArray.getJSONObject(i)
+
+                        if(JSONObject.getString("canclientes").toInt()>0){
+                            arraylisC.add("$i")//Si hay clientes en la maquina
+                        }else{
+                            arraylisD.add("$i")//No hay clientes EN LA MAQUINA
+                        }
+
+
+                    val soportados2 = JSONObject.getString("soportados").toInt()
+                    soport = soportados2 + soport
+                }
+                bind.txtcsop.text=  soport.toString()//Cantidad maxima de clientes que soporta
+
+                bind.txtmqt.text =arraylisC.size.toString()//Cantidad de maquinas Desocupadas
+
+                    bind.txtmqd.text =arraylisD.size.toString()//Cantidad de maquinas Ocupadas
+
+
+
                 NMPT =  jsonArray.length()
-                bind.txtmqt.text = NMPT.toString()
+
             }, { error ->
 
             }
@@ -142,177 +177,7 @@ class FragmentDashBoard : Fragment() {
 
 
         //TAREA 5 BUSCO EL NUMERO DE MAQUINAS y SUMO LA CANTIDAD QUE SOPORTA
-        bind.txtcsop.setText("")
-        soport = 0
-        val url = "http://$URL/api/maquinaedit.php?clave=$id2"
-        var jsonObjectRequest1= JsonObjectRequest(
-            Request.Method.GET,url,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-                for (i in 0 until jsonArray.length()){
-                    bind.txtcsop.clearComposingText()
-                    var jsonObject= jsonArray.getJSONObject(i)
-                    val soportados2 = jsonObject.getString("soportados").toInt()
-                    soport = soportados2 + soport
-                }
-                bind.txtcsop.text=  soport.toString()
 
-            }, { error ->
-
-            }
-        )
-        queue.add(jsonObjectRequest1)
-
-
-
-
-/*
-         Hago ecuaciones con los datos obtenido
-         CLIENTES TOTALES POR MAQUINA? rta: sumatoria de todas los clientes de cada maquina propia
-         CLIENTES TOTALES POR PROVEEDOR? rta: sumatoria de todas las NCP
-         MAQUINAS TOTALES DE PROVEEDORES? rta: sumatoria de todos los NMP
-
-
-
- *//*
-
-//
-        //1busco las identificaciones de proveedor
-            //hago una lista con ellos para luego buscar sus datos uno a uno sin tener que acceder a internet todo el tiempo
-        val urlP = "http://192.168.4.100/api/usuariosedit?clave=$id2"
-        var jsonObjectRequestP= JsonObjectRequest(
-            Request.Method.GET,urlP,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-                for (i in 0 until jsonArray.length()){
-                    var jsonObject= jsonArray.getJSONObject(i)
-                    val soportados = jsonObject.getString("proveedorid")
-                    arraylis.add(ListadeProveedores(soportados))
-                }
-            }, { error ->
-
-            }
-        )
-        queue.add(jsonObjectRequestP)
-
-
-        //2busco el numero de identificacion de maquinas de cada proveedor
-
-        for (j in 0 until arraylis.size){
-            val idm: String = arraylis[j].toString()
-            val urlM = "http://192.168.4.100/api/maquinaedit?proveedorid=$idm"
-        var jsonObjectRequestM= JsonObjectRequest(
-            Request.Method.GET,urlM,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-                for (i in 0 until jsonArray.length()){
-
-                    var jsonObject= jsonArray.getJSONObject(i)
-                    val soportados = jsonObject.getString("maquinaid")
-                    arraylisM.add(ListadeMaquinas(soportados))
-                }
-            }, { error ->
-
-            }
-        )
-        queue.add(jsonObjectRequestM)
-        }
-
-            // hago un if porque necesisto saber cuantos clientes tiene cada maquina para asi saber cuales funcionan y cuales no
-
-        //REPITO EL PROCESO HASTA COMPLETAR EL ARRAYLISTM
-        for (j in 0 until arraylisM.size){
-            //llamo al valor del arraylist ordenado en el valor j
-            val idmc: String = arraylisM[j].toString()
-            //defino la url con el valor asignado por el array asi se completa el pedido al enviar todo
-            val urlM = "http://192.168.4.100/api/clientesedit?maquinaid=$idmc"
-            var jsonObjectRequestM= JsonObjectRequest(
-                Request.Method.GET,urlM,null,
-                { response ->
-                    var jsonArray = response.getJSONArray("data")
-                    //agarro el valor del jsonArray que es el numero de clientes encontrados que tienen esa misma identificacion de maquina
-                    NMP =jsonArray.length()
-                    //ENVIO EL NUMERO DE CLIENTES A LA BASE DE DATOS CON EL NUMERO DE IDENTIFICACION DE MAQUINA
-                    // defino la url de nuevo para un POST de actualizacion de datos
-                    val urlMs = "http://192.168.4.100/api/maquinaedit"
-                    var resultadoPost = object : StringRequest(Request.Method.POST,urlMs,
-                        Response.Listener<String> { response ->
-                            Toast.makeText(this@FragmentDashBoard.requireContext(),"CLIENTE EDITADO!",Toast.LENGTH_LONG).show()
-                        }, Response.ErrorListener { error ->
-                            Toast.makeText(this@FragmentDashBoard.requireContext(),"ERROR $error",Toast.LENGTH_LONG).show()
-                        }){
-                        //con esta funcion envio los parametros que es uno solo a canclientes con el valor NMP
-                        override fun getParams(): MutableMap<String, String>? {
-                            val parametros = HashMap<String,String>()
-                            // Key y value
-                            parametros.put("canclientes",NMP.toString())
-                            parametros.put("maquinaid",idmc)
-                            return parametros
-                        }
-                    }
-                    // con esto envio o SEND todo
-                    queue.add(resultadoPost)
-
-
-
-
-
-
-                }, { error ->
-
-                }
-            )
-            queue.add(jsonObjectRequestM)
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        //3 busco la cantidad de clientes con la identificacion del proveedor LISTO
-
-        for (j in 0 until arraylis.size){
-            val idp: String = arraylis[j].toString()
-
-            val urlcP = "http://192.168.4.100/api/clientesedit?proveedorid=$idp"
-            var jsonObjectRequestcP= JsonObjectRequest(
-                Request.Method.GET,urlcP,null,
-                { response ->
-                    var jsonArray = response.getJSONArray("data")
-                    NCPT += jsonArray.length()
-
-                }, { error ->
-
-                }
-            )
-            queue.add(jsonObjectRequestcP)
-
-
-
-        }
-        //guardo en el texto el numero total de clientes por proveedores
-        bind.txtprom.text = NCPT.toString()
-
-
-        //REPIRO HASTA ALCANZAR TODOS LOS PROVEEDORES y sumo la cantidad de clientes de cada proveedor
-
-
-
-
-
-
-*/
 
 
 
@@ -346,8 +211,10 @@ class FragmentDashBoard : Fragment() {
 
         //TAREA 7 DEFINO EL CAPITAL GENERADO  PROVEEDOR
         bind.txtmaqp.setText("")
-        soport3 = 0
-        val urlPP = "http://$URL/api/usuariosedit.php?clave=$id2&proveedorid=propio"
+        bind.txtvalorpcm.setText("")
+        soport4 = 0
+        var contador1=0
+        val urlPP = "http://$URL/api/usuariosedit.php?clave=$id2"
         var jsonObjectRequestPP= JsonObjectRequest(
             Request.Method.GET,urlPP,null,
             { response ->
@@ -356,9 +223,22 @@ class FragmentDashBoard : Fragment() {
                     bind.txtmaqp.clearComposingText()
                     var jsonObject= jsonArray.getJSONObject(i)
                     val soportados2 = jsonObject.getString("totalgenerado").toInt()
-                    soport3 = soportados2 + soport3
+                    soport4 = soportados2 + soport4
+                    if(jsonObject.getString("proveedorid")=="propio"){
+
+                        bind.txtvalorpcm.setText(jsonObject.getString("precioarch").toString())
+
+                        contador1=  soportados2
+
+
+                    }
                 }
-                bind.txtmaqp.text=  "$ $soport3"
+                bind.txtliquid.setText("$ $soport4")//TOTAL GENERADO
+                bind.txtnp.setText("${jsonArray.length()}")//TOTAL GENERADO
+
+                bind.txtmaqp.text=  "$ ${soport4-contador1}" //TOTAL GENERADO POR PROVEEDORES SOLAMENTE
+
+
             //    bind.txtprmp.text= (soport3/3).toString()
             }, { error ->
 
@@ -366,46 +246,6 @@ class FragmentDashBoard : Fragment() {
         )
         queue.add(jsonObjectRequestPP)
 
-
-
-
-        //TAREA 8 DEFINO EL CAPITAL GENERADO
-        bind.txtliquid.setText("")
-        soport4 = 0
-        val urlG= "http://$URL/api/usuariosedit.php?clave=$id2"
-        var jsonObjectRequestG= JsonObjectRequest(
-            Request.Method.GET,urlG,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-                NP =jsonArray.length() -1
-                bind.txtnp.text = NP.toString()
-                for (i in 0 until jsonArray.length()){
-                    bind.txtliquid.clearComposingText()
-                    var jsonObject= jsonArray.getJSONObject(i)
-                    val soportados2 = jsonObject.getString("totalgenerado").toInt()
-                    soport4 = soportados2 + soport4
-
-                }
-                bind.txtliquid.setText("$ $soport4")
-
-            }, { error ->
-
-            }
-        )
-        queue.add(jsonObjectRequestG)
-
-
-        //TAREA 9 PRECIO DEL ARCHIVO
-        val urlA = "http://$URL/api/usuarios.php?proveedorid=propio"
-        val jsonObjectRequestA= JsonObjectRequest(
-            Request.Method.GET,urlA,null,
-            { response ->
-                bind.txtvalorpcm.setText(response.getString("precioarch"))
-            }, { error ->
-
-            }
-        )
-        queue.add(jsonObjectRequestA)
 
 
 

@@ -8,15 +8,8 @@ class MaquinaData(val stock:String,val cpu:String,val ram:String,val red:String,
 }
 class ListadeProveedores(val proveedorid:String) {
 }
-class ListadeNClientesP(val nclip: String) {
-}
-class ListadeNClientesM(val nclim: String) {
-}
-class ListadeNMaquinasP(val nmaqp: String) {
-}
+
 class ListadeMaquinas(val maquinaid: String) {
 }
 class ListaProveedor(val usuario: String,val password: String,val proveedorid: String,val nclientes: String,val clientesop: String,val cantmaquinas: String,) {
-}
-class FECHA(val fecha: String) {
 }

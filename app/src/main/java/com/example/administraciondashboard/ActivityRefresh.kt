@@ -15,7 +15,6 @@ import org.json.JSONException
 import java.util.*
 
 class ActivityRefresh : AppCompatActivity() {
-    private val fragmentdashboard = FragmentDashBoard()
     private var EdtPA: TextView?=null
     private var EdtPP: TextView?=null
 
@@ -30,6 +29,7 @@ class ActivityRefresh : AppCompatActivity() {
     var cantproveedores:Int=0
 
     val arraylis= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
+    val arraylisP= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
     val arraylisM= ArrayList<String>() //LISTADO DE IDENTIFICACION DE MAQUINAS
     val arraylisNCM= ArrayList<String>() //LISTADO DE CANTIDAD DE CLIENTES POR CADA MAQUINA
     val arraylisNCPM= ArrayList<String>() //LISTADO DE CANTIDAD DE CLIENTES POR CADA PROVEEDOR EN el MES
@@ -93,6 +93,7 @@ class ActivityRefresh : AppCompatActivity() {
         
         
     }
+
     fun ClickRefresh(view: View){
 
         if (sw1){
@@ -130,13 +131,16 @@ class ActivityRefresh : AppCompatActivity() {
                  for (i in 0 until jsonArray.length()){
                      var jsonObject= jsonArray.getJSONObject(i)
                      val soportados = jsonObject.getString("proveedorid").toString()
+                     val user = jsonObject.getString("usuario").toString()
                       precioarchivo = jsonObject.getString("precioarch").toString().toInt()
                      //busco la sumatoria del precio de archivos
                      precioarchivo += precioarchivo
 
-                     arraylis.add(soportados) }
+                     arraylis.add(soportados)
+                     arraylisP.add(user)
+                 }
 
-                 val arrayAdapter = ArrayAdapter(this,R.layout.list_item_drop,arraylis)
+                 val arrayAdapter = ArrayAdapter(this,R.layout.list_item_drop,arraylisP)
                  TxtVDrop?.setAdapter(arrayAdapter)
                  //valor del promedio de archivos
 
@@ -150,6 +154,7 @@ class ActivityRefresh : AppCompatActivity() {
 
 
      }
+
     fun NCliMesProList(){
 
 
@@ -225,6 +230,7 @@ class ActivityRefresh : AppCompatActivity() {
 
 
     }
+
     fun NMaqProList(){
         //Busca las maquinas en la tabla MAQUINA con el valor PROVEEDOR ID, GET(PASAN A UNA LISTA)
 
@@ -287,6 +293,7 @@ class ActivityRefresh : AppCompatActivity() {
 
 
     }
+
     fun NCliMaqList(){
         //Busca los clientes en la tabla CLIENTES con el valor MAQUINA ID, GET(PASAN A UNA LISTA)
 

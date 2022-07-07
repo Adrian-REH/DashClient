@@ -58,7 +58,7 @@
             android:layout_gravity="start"
             android:layout_margin="30dp"
             android:hint="Lista"
-            app:startIconDrawable="@drawable/ic_money">
+            app:startIconDrawable="@drawable/ic_account">
             <AutoCompleteTextView
                 android:id="@+id/TxtVDrop"
                 android:layout_weight="1"
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_weight="1"
-                android:hint="Prom. Precio del archivo Proveedor"
+                android:hint="cuanto cobra el proveedor"
                 app:helperText="*Requerido"
                 app:startIconDrawable="@drawable/ic_money">
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_two"
+    android:background="@color/purple_200"
     tools:context=".ActivityMaquina">
 
     <TextView
@@ -26,12 +26,13 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             app:startIconDrawable="@drawable/ic_key"
             app:helperText="*Requerido"
 
             android:hint="Proveedor ID">
-            <com.google.android.material.textfield.TextInputEditText
+            <AutoCompleteTextView
+                android:focusable="false"
                 android:id="@+id/txtPData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

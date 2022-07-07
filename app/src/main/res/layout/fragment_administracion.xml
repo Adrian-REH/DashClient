@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_three"
+    android:background="@color/purple_200"
     tools:context=".Fragment.FragmentAdministracion">
 
     <TextView
@@ -182,8 +182,7 @@
             android:visibility="invisible"
             app:backgroundTint="#00FFFFFF"
             app:rippleColor="#FFFFFF"
-            app:tint="@color/white">
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+            app:tint="@color/white"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnadd"

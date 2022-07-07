@@ -277,9 +277,6 @@ class FragmentAdministracion : Fragment(), AdapterRecomendado.onClickListener,
         startActivity(intent)
     }
 
-
-
-
     override fun onMaquinaItemClick(maquinaid: String) {
         val intent = Intent(this@FragmentAdministracion.requireContext(), ActivityMaquina::class.java)
         val data = arguments

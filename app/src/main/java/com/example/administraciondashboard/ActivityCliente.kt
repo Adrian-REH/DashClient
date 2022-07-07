@@ -4,21 +4,25 @@ import android.annotation.SuppressLint
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.administraciondashboard.Adapter.Maquina
+import com.example.proveedordashboard.adaptadorMaquina
+import kotlinx.android.synthetic.main.activity_cliente.*
+import org.json.JSONException
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.util.*
 import kotlin.collections.HashMap
 
-class ActivityCliente : AppCompatActivity() {
+class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
 
     var txtname: EditText?=null     // Nombre
     var txttid: EditText?=null      // Token ID
@@ -27,12 +31,15 @@ class ActivityCliente : AppCompatActivity() {
     var txtcel: EditText?=null      // Celular
     var txtuser: EditText?=null      // Celular
     var txtpass: EditText?=null      // Celular
-    var txthost: EditText?=null      // Celular
-    var txtMtid: EditText?=null      // Maquina ID
-    var txtPtid: EditText?=null      // proveedor ID
     var URL:String?=null                //URL
     var f:String="0"
     var PID:String?=null                //URL
+
+    val arraylis= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
+    val arraylisP= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
+    val arraylis1= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
+    val arraylis2= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cliente)
@@ -44,9 +51,6 @@ class ActivityCliente : AppCompatActivity() {
         txtcel=findViewById(R.id.txtcel)        // Celular
         txtuser=findViewById(R.id.txtuser)        // Celular
         txtpass=findViewById(R.id.txtpass)        // Celular
-        txthost=findViewById(R.id.txthost)        // Celular
-        txtMtid=findViewById(R.id.txtMtid)        // Maquina ID
-        txtPtid=findViewById(R.id.txtPtid)        // proveedor ID
 
         if(intent.extras !=null){
             URL = intent.getStringExtra("URL").toString()
@@ -54,10 +58,12 @@ class ActivityCliente : AppCompatActivity() {
             if (intent.getStringExtra("tokenid") !=null){
                 txttid?.setText(intent.getStringExtra("tokenid").toString())
                 clickRestaurar(View(applicationContext))
+            }else{
+                BuscPidList()
+
             }
 
         }
-
 
 
     }
@@ -151,7 +157,94 @@ class ActivityCliente : AppCompatActivity() {
 
     }
 
+    fun BuscPidList(){
+        //Busca los PROVEEDOR ID en la tabla USUARIOS, GET(PASAN A UNA LISTA)
+        arraylis.clear()
+        arraylisP.clear()
+        val queue = Volley.newRequestQueue(this)
+        //1busco las identificaciones de proveedor
+        //hago una lista con ellos para luego buscar sus datos uno a uno sin tener que acceder a internet todo el tiempo
+        val urlP = "http://$URL/api/usuariosedit.php?clave=dExterTable"
+        var jsonObjectRequestP= JsonObjectRequest(
+            Request.Method.GET,urlP,null,
+            { response ->
 
+                var jsonArray = response.getJSONArray("data")
+                for (i in 0 until jsonArray.length()){
+                    var jsonObject= jsonArray.getJSONObject(i)
+                    val soportados = jsonObject.getString("proveedorid").toString()
+                    val user = jsonObject.getString("usuario").toString()
+                    //busco la sumatoria del precio de archivos
+
+                    arraylis.add(soportados)
+                    arraylisP.add(user)
+                }
+
+                val arrayAdapter = ArrayAdapter(this,R.layout.list_item_drop,arraylisP)
+                with(txtPtid){
+                    setAdapter(arrayAdapter)
+                    onItemClickListener = this@ActivityCliente
+
+                }
+                //valor del promedio de archivos
+
+            }, { error ->
+                Toast.makeText(this,"ERROR $error",Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(jsonObjectRequestP)
+
+
+
+    }
+
+    fun BuscMPList(search:String){
+        arraylis1.clear()
+        //DATOS DE LA LISTA MAQUINAS PROPIAS
+        var queue = Volley.newRequestQueue(this)
+        var url = "http://$URL/api/maquinaedit.php?clave=dExterTable"
+        var jsonObjectRequest= JsonObjectRequest(
+            Request.Method.GET,url,null,
+            { response ->
+                try{
+                    var jsonArray = response.getJSONArray("data")
+
+                    for (i in 0 until jsonArray.length()){
+
+                        var jsonObject= jsonArray.getJSONObject(i)
+                        val prid= jsonObject.getString("proveedorid").toString()
+                        val maquinaid= jsonObject.getString("maquinaid").toString()
+                        val host= jsonObject.getString("host").toString()
+                        if (search==prid){
+                            arraylis1.add(maquinaid)
+                            arraylis2.add(host)
+
+                        }
+                    }
+
+                    val arrayAdapter = ArrayAdapter(this,R.layout.list_item_drop,arraylis1)
+                    with(txtMtid){
+                        setAdapter(arrayAdapter)
+                        onItemClickListener = this@ActivityCliente
+
+                    }
+
+
+                }catch (e: JSONException){
+                    e.printStackTrace()
+                }
+
+
+
+            }, { error ->
+
+                Toast.makeText(this,"ERROR $error", Toast.LENGTH_LONG).show()
+            }
+        )
+        queue.add(jsonObjectRequest)
+
+
+    }
 
     fun clickRestaurar(view: View){
         val id =txttid?.text.toString()
@@ -160,6 +253,7 @@ class ActivityCliente : AppCompatActivity() {
         val jsonObjectRequest= JsonObjectRequest(
             Request.Method.GET,url,null,
             { response ->
+                BuscPidList()
                 txtname?.setText(response.getString("nombre"))
                 txtfecha?.setText(response.getString("Fecha"))
                 txtcel?.setText(response.getString("telefono"))
@@ -236,13 +330,13 @@ class ActivityCliente : AppCompatActivity() {
         )
         queue.add(jsonObjectRequest)
     }
+
     fun GeneraTokenID(){
         f= txtuser?.text.toString() + txtpass?.text.toString()
         val c = f.toByteArray()
         PID= Integer.toHexString(c.hashCode())
 
     }
-
 
     fun ClickHora(view: View){
         val c = Calendar.getInstance()
@@ -274,7 +368,28 @@ class ActivityCliente : AppCompatActivity() {
     //    datepicker.show(supportFragmentManager,"datepicker")
 
     }
- //   fun onDateSelected(day:Int,month:Int, year:Int){
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val item = parent?.getItemAtPosition(position).toString()
+        for (i in 0 until  arraylis.size){
+            if (item==arraylisP[i]){
+                BuscMPList(arraylis[i])
+                txtPtid.setText(arraylis[i])
+
+            }
+        }
+        for (i in 0 until  arraylis1.size){
+            if (item==arraylis1[i]){
+                val arrayAdapter = ArrayAdapter(this,R.layout.list_item_drop,arraylis2)
+                with(txthost){
+                    setAdapter(arrayAdapter)
+                }
+
+            }
+        }
+
+    }
+    //   fun onDateSelected(day:Int,month:Int, year:Int){
  //       txtfecha?.setText("$day/$month/$year")
  //   }
 }
