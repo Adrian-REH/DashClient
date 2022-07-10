@@ -2,6 +2,7 @@ package com.example.proveedordashboard.Adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,8 +57,17 @@ RecyclerView.Adapter<AdaptadorCustom.ViewHolder>(){
         fun bintItem(model: Model, context: Context){
             itemView.Rlver.setOnClickListener {itemClickListener.onMaquinaItemClick(model.tokenid) }
             itemView.personaName.text=model.nombre
-            itemView.tid.text=model.tokenid
+            itemView.tid.text="ID:"+model.tokenid
             itemView.Fecha.text=model.Fecha
+            if(model.pago)
+            {
+                    itemView.cardpago.setCardBackgroundColor(Color.GREEN)
+            }else{
+                itemView.cardpago.setCardBackgroundColor(Color.WHITE)
+
+            }
+
+
 
         }
     }

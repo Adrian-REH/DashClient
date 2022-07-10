@@ -287,7 +287,7 @@ class FragmentAdministracion : Fragment(), AdapterRecomendado.onClickListener,
     }
 
     override fun onProveedorItemClick(proveedorid: String) {
-        val intent = Intent(this@FragmentAdministracion.requireContext(), ActivityDatosProveedor::class.java)
+        val intent = Intent(this@FragmentAdministracion.requireContext(), ActivityProveedor::class.java)
         val data = arguments
         val URL= data?.get("URL").toString()
         intent.putExtra("proveedorid",proveedorid)

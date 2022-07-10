@@ -51,7 +51,7 @@ class FragmentClientes : Fragment(), onClienteItemClick{
             startActivity(intent)
         }
 
-
+        arraylis.clear()
         //GENERA LA LISTA
         val queue = Volley.newRequestQueue(this@FragmentClientes.requireContext())
         val url = "http://$URL/api/clientesedit.php?clave=$id2"
@@ -67,7 +67,8 @@ class FragmentClientes : Fragment(), onClienteItemClick{
                         val tid= jsonObject.getString("tokenid").toString()
                         val Fecha= jsonObject.getString("Fecha").toString()
                         val cel= jsonObject.getString("telefono").toString()
-                        arraylis.add(Model(personaName,Fecha,cel,maqN,tid)) }
+                        val pago= jsonObject.getString("sipago").toBoolean()
+                        arraylis.add(Model(personaName,Fecha,cel,maqN,tid,pago)) }
 
                     displayList.addAll(arraylis)
                     val AdaptadorCustom= AdaptadorCustom(displayList,this@FragmentClientes.requireContext(),this)
@@ -94,14 +95,14 @@ class FragmentClientes : Fragment(), onClienteItemClick{
         }
 
         bind.btnvenc.setOnClickListener {
-
+            arraylis.clear()
+            displayList.clear()
             val queueB = Volley.newRequestQueue(this@FragmentClientes.requireContext())
             val url1 = "http://$URL/api/clientesedit.php?clave=dExterTable"
             val jsonObjectRequestB= JsonObjectRequest(
                 Request.Method.GET,url1,null,
                 { response ->
-                    arraylis.clear()
-                    displayList.clear()
+
                     try{
                         val jsonArray = response.getJSONArray("data")
                         //DATOS  DE LA FECHA DEL MES QUE VIENE
@@ -129,10 +130,11 @@ class FragmentClientes : Fragment(), onClienteItemClick{
                             val tid= jsonObject.getString("tokenid").toString()
                             val Fecha= jsonObject.getString("Fecha").toString()
                             val cel= jsonObject.getString("telefono").toString()
+                            val pago= jsonObject.getString("sipago").toBoolean()
 
                             //COMPRUEBO QUE LA FECHA DEL MES QUE VIENE SEA MENOR A LA FECHA DEL CLIENTE PARA QUE PUEDA ASI SABER SI SE VENCIO O NO
                             if ( Fecha.toInt() > fecha){
-                                arraylis.add(Model(personaName,Fecha,cel,maqN,tid))
+                                arraylis.add(Model(personaName,Fecha,cel,maqN,tid,pago))
                             }
 
                         }
@@ -189,15 +191,15 @@ class FragmentClientes : Fragment(), onClienteItemClick{
         displayList.clear()
         for (i in 0 until arraylis.size){
             if (arraylis[i].Fecha.toString()==search){
-                displayList.add(Model("${arraylis[i].nombre}","${arraylis[i].Fecha}","${arraylis[i].telefono}","${arraylis[i].nmaquina}","${arraylis[i].tokenid}"))
+                displayList.add(Model("${arraylis[i].nombre}","${arraylis[i].Fecha}","${arraylis[i].telefono}","${arraylis[i].nmaquina}","${arraylis[i].tokenid}",arraylis[i].pago))
 
             }
             if (arraylis[i].nombre.toString()==search){
-                displayList.add(Model("${arraylis[i].nombre}","${arraylis[i].Fecha}","${arraylis[i].telefono}","${arraylis[i].nmaquina}","${arraylis[i].tokenid}"))
+                displayList.add(Model("${arraylis[i].nombre}","${arraylis[i].Fecha}","${arraylis[i].telefono}","${arraylis[i].nmaquina}","${arraylis[i].tokenid}",arraylis[i].pago))
 
             }
             if (arraylis[i].telefono.toString()==search){
-                displayList.add(Model("${arraylis[i].nombre}","${arraylis[i].Fecha}","${arraylis[i].telefono}","${arraylis[i].nmaquina}","${arraylis[i].tokenid}"))
+                displayList.add(Model("${arraylis[i].nombre}","${arraylis[i].Fecha}","${arraylis[i].telefono}","${arraylis[i].nmaquina}","${arraylis[i].tokenid}",arraylis[i].pago))
 
             }
 
@@ -210,6 +212,7 @@ class FragmentClientes : Fragment(), onClienteItemClick{
         recyclerView.layoutManager= LinearLayoutManager(this@FragmentClientes.requireContext())
         recyclerView.adapter=AdaptadorCustom
     }
+
     override fun onMaquinaItemClick(tokenid: String) {
         val intent = Intent(this@FragmentClientes.requireContext(), ActivityCliente::class.java)
         val data = arguments

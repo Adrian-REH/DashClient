@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="PROVEEDOR"
+
         android:paddingTop="5dp"
         android:gravity="center"
         android:textSize="20sp"
@@ -220,7 +221,7 @@
              android:layout_height="wrap_content"
              android:layout_gravity="start"
 
-             android:hint="Mes"
+             android:hint="Clientes activos"
              app:startIconDrawable="@drawable/ic_person">
 
              <com.google.android.material.textfield.TextInputEditText
@@ -321,7 +322,11 @@
 
 
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clientes: La cantidad de clientes que se registraron. Clientes en el mes: Cantidad de clientes que tiene activo su servicio"
+                />
 
 
         </LinearLayout>

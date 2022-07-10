@@ -1,6 +1,6 @@
 package com.example.administraciondashboard.Adapter
 
-class Model(val nombre:String,val Fecha:String,val telefono:String,val nmaquina:String,val tokenid:String) {
+class Model(val nombre:String,val Fecha:String,val telefono:String,val nmaquina:String,val tokenid:String,val pago:Boolean) {
 }
 class Maquina(val canclientes:String,val soportados:String,val fecha:String,val numero:String,val maquinaid:String) {
 }

@@ -12,6 +12,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_proveedor.*
 
 class ActivityProveedor : AppCompatActivity() {
     var nota: Int =12
@@ -28,10 +29,10 @@ class ActivityProveedor : AppCompatActivity() {
     var Pbtnsave: Button?=null      // Celular
     var Pbtnrestart: Button?=null      // Celular
     var pbtnBorrar: Button?=null      // Celular
-    var Pbtngenerar: Button?=null      // Celular
     var f:String="0"
     var PID:String="0"
-    var URL:String="0"
+    var URL:String=""
+    var IDproveedor:String=""
 
     var dia= 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,11 +52,12 @@ class ActivityProveedor : AppCompatActivity() {
         Pbtnsave=findViewById(R.id.Pbtnsave)        // Celular
         Pbtnrestart=findViewById(R.id.Pbtnrestart)        // Celular
         pbtnBorrar=findViewById(R.id.PbtnBorrar)        // Celular
-        Pbtngenerar=findViewById(R.id.Pbtngenerar)        // Celular
 
         if(intent.extras !=null){
             if (intent.getStringExtra("proveedorid") !=null){
-                Ptxthost?.setText(intent.getStringExtra("proveedorid").toString())
+                Pbtngenerar.visibility = View.GONE
+                IDproveedor=intent.getStringExtra("proveedorid").toString()
+                Ptxthost?.setText(IDproveedor)
                 clickRestaurarP(View(applicationContext))
             }
             URL = intent.getStringExtra("URL").toString()
@@ -157,9 +159,8 @@ class ActivityProveedor : AppCompatActivity() {
 
     }
     fun clickRestaurarP(view: View){
-        val id =Ptxthost?.text.toString()
         val queue = Volley.newRequestQueue(this)
-        val url = "http://$URL/api/usuarios.php?proveedorid=$id"
+        val url = "http://$URL/api/usuarios.php?proveedorid=$IDproveedor"
         val jsonObjectRequest= JsonObjectRequest(
             Request.Method.GET,url,null,
             { response ->
@@ -172,7 +173,7 @@ class ActivityProveedor : AppCompatActivity() {
                 Ptxtarch?.setText(response.getString("precioarch"))
                 txtgenerado?.setText(response.getString("totalgenerado"))
             }, { error ->
-                Toast.makeText(this,error.toString(), Toast.LENGTH_LONG).show()
+
             }
         )
         queue.add(jsonObjectRequest) }
@@ -186,6 +187,8 @@ class ActivityProveedor : AppCompatActivity() {
         val resultadoDelete = object : StringRequest(
             Request.Method.DELETE,url,
             Response.Listener { response ->
+                Pbtngenerar.visibility = View.VISIBLE
+
                 Toast.makeText(this,"El usuario se borro de forma exitosa", Toast.LENGTH_LONG).show()
             },
             Response.ErrorListener { error ->

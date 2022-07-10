@@ -1,8 +1,12 @@
 package com.example.administraciondashboard
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
+import android.net.Uri
 import android.os.Bundle
+import android.telephony.PhoneNumberUtils
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +38,7 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
     var URL:String?=null                //URL
     var f:String="0"
     var PID:String?=null                //URL
+    var SWTCH:Boolean=false                //URL
 
     val arraylis= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
     val arraylisP= ArrayList<String>() //LISTADO DE IDENTIFICACION DE PROVEEDORES
@@ -64,7 +69,10 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
             }
 
         }
+        swtc.setOnCheckedChangeListener { buttonView, isChecked ->
+                SWTCH=isChecked
 
+        }
 
     }
 
@@ -87,7 +95,7 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
                     Response.Listener<String> { response ->
                         Toast.makeText(this,"CLIENTE EDITADO!", Toast.LENGTH_LONG).show()
                     }, Response.ErrorListener { error ->
-                        Toast.makeText(this,"ERROR $error", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,"ERROR al editar $error", Toast.LENGTH_LONG).show()
                     }){
                     override fun getParams(): MutableMap<String, String>? {
                         val parametros = HashMap<String,String>()
@@ -95,13 +103,13 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
                         parametros.put("nombre",txtname?.text.toString())
                         parametros.put("tokenid",txttid?.text.toString())
                         parametros.put("fecha",txtfecha?.text.toString())
-                        parametros.put("nmaquina",txtmaquina?.text.toString())
                         parametros.put("telefono",txtcel?.text.toString())
                         parametros.put("password",txtpass?.text.toString())
                         parametros.put("usuario",txtuser?.text.toString())
                         parametros.put("host",txthost?.text.toString())
                         parametros.put("maquinaid",txtMtid?.text.toString())
                         parametros.put("proveedorid",txtPtid?.text.toString())
+                        parametros.put("sipago",SWTCH.toString())
                         return parametros
                     }
                 }
@@ -123,7 +131,7 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
                     Response.Listener<String> { response ->
                         Toast.makeText(this,"CLIENTE REGISTRADO!", Toast.LENGTH_LONG).show()
                     }, Response.ErrorListener { error ->
-                        Toast.makeText(this,"ERROR $error", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,"ERROR al Registar $error", Toast.LENGTH_LONG).show()
                     }){
                     override fun getParams(): MutableMap<String, String>? {
                         val parametros = HashMap<String,String>()
@@ -263,6 +271,7 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
                 txthost?.setText(response.getString("host"))
                 txtMtid?.setText(response.getString("maquinaid"))
                 txtPtid?.setText(response.getString("proveedorid"))
+                swtc.isChecked=response.getString("sipago").toBoolean()
             }, { error ->
                 Toast.makeText(this,error.toString(), Toast.LENGTH_LONG).show()
             }
@@ -392,4 +401,11 @@ class ActivityCliente : AppCompatActivity(),AdapterView.OnItemClickListener {
     //   fun onDateSelected(day:Int,month:Int, year:Int){
  //       txtfecha?.setText("$day/$month/$year")
  //   }
+    fun ClickWsp(view: View){
+        val a=txtcel?.text.toString()
+        val b=txtname?.text.toString()
+        // Creating intent with action send
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=+549$a&text=Hola%20%$b")))
+
+    }
 }

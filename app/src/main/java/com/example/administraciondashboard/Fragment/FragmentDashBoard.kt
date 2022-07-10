@@ -35,6 +35,7 @@ class FragmentDashBoard : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        val arraylis= ArrayList<String>()
         val arraylisCP= ArrayList<String>()
         val arraylisCT= ArrayList<String>()
         val arraylisC= ArrayList<String>()
@@ -58,7 +59,7 @@ class FragmentDashBoard : Fragment() {
 
         //Me envian los datos de la actividad principal
 
-
+        arraylis.clear()
         //Defino id2 para el dato de la actividad principal y queue para enviar los datos al finalizar la tarea
         val id2: String = bind.datoenviado.text.toString()
         val queue = Volley.newRequestQueue(this@FragmentDashBoard.requireContext())
@@ -77,6 +78,9 @@ class FragmentDashBoard : Fragment() {
                     if(JSONObject.getString("proveedorid").toString()=="propio"){
                         arraylisCP.add("$i")
                     }
+                    if(JSONObject.getString("sipago").toBoolean()){
+                        arraylis.add("$i")
+                    }
 
                         arraylisCT.add("$i")
 
@@ -84,19 +88,33 @@ class FragmentDashBoard : Fragment() {
                 }
                 //NUMERO DE CLIENTES PROPIOS
                 if (arraylisCP.size>0){
-                    bind.txtclimaq.setText(arraylisCP.size.toString())
+                    bind.txtcliibiocd.setText(arraylisCP.size.toString())
                     NCP =jsonArray.length()
+
                 }else{
-                    bind.txtclimaq.text = "0"
+                    bind.txtcliibiocd.text = "0"
 
                 }
                 //NUMERO DE CLIENTES DE PROVEEDORES
                 if (arraylisCT.size>0){
                     val numero=arraylisCT.size - arraylisCP.size
+                    val nu2=arraylisCT.size
+                    bind.txtclientt.setText(nu2.toString())
                     bind.txtncp.setText(numero.toString())
                     NCP =jsonArray.length()
                 }else{
                     bind.txtncp.text = "0"
+                    bind.txtclientt.text = "0"
+
+                }
+                if (arraylis.size>0){
+                    val numero=arraylis.size
+                    val num2= arraylisCT.size -arraylis.size
+                    bind.txtcliocup.setText(numero.toString())
+                    bind.txtclides.setText(num2.toString())
+
+                }else{
+                    bind.txtcliocup.text = "0"
 
                 }
 
@@ -113,23 +131,6 @@ class FragmentDashBoard : Fragment() {
 
 
         //TAREA 3 BUSCO EL NUMERO DE MAQUINAS PROPIAS QUE TIENEN CERO CLIENTES
-/*
-        val urlOM = "http://$URL/api/maquinaedit.php?canclientes=0&proveedorid=propio"
-        val jsonObjectRequestOM= JsonObjectRequest(
-            Request.Method.GET,urlOM,null,
-            { response ->
-                var jsonArray = response.getJSONArray("data")
-
-                NMPD =jsonArray.length()
-                bind.txtmqd.text =jsonArray.length().toString()
-
-            }, { error ->
-                bind.txtmqd.text =NMPD.toString()
-
-            }
-        )
-        queue.add(jsonObjectRequestOM)
-*/
 
         arraylisCT.clear()
         arraylisCP.clear()
@@ -162,7 +163,7 @@ class FragmentDashBoard : Fragment() {
 
                 bind.txtmqt.text =arraylisC.size.toString()//Cantidad de maquinas Desocupadas
 
-                    bind.txtmqd.text =arraylisD.size.toString()//Cantidad de maquinas Ocupadas
+                bind.txtmqd.text =arraylisD.size.toString()//Cantidad de maquinas Ocupadas
 
 
 
@@ -214,6 +215,7 @@ class FragmentDashBoard : Fragment() {
         bind.txtvalorpcm.setText("")
         soport4 = 0
         var contador1=0
+        var contador2=0
         val urlPP = "http://$URL/api/usuariosedit.php?clave=$id2"
         var jsonObjectRequestPP= JsonObjectRequest(
             Request.Method.GET,urlPP,null,
@@ -226,15 +228,20 @@ class FragmentDashBoard : Fragment() {
                     soport4 = soportados2 + soport4
                     if(jsonObject.getString("proveedorid")=="propio"){
 
-                        bind.txtvalorpcm.setText(jsonObject.getString("precioarch").toString())
 
                         contador1=  soportados2
 
 
                     }
+
+                    contador2+=jsonObject.getString("precioarch").toInt()
                 }
+
+                contador2=contador2/jsonArray.length()
+                bind.txtvalorpcm.setText(contador2.toString())
+
                 bind.txtliquid.setText("$ $soport4")//TOTAL GENERADO
-                bind.txtnp.setText("${jsonArray.length()}")//TOTAL GENERADO
+                bind.txtnp.setText("${jsonArray.length()-1}")//TOTAL GENERADO
 
                 bind.txtmaqp.text=  "$ ${soport4-contador1}" //TOTAL GENERADO POR PROVEEDORES SOLAMENTE
 

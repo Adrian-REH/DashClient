@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_weight="1"
-                android:hint="Clientes mes"
+                android:hint="Clientes activos"
                 app:helperText="*Requerido"
                 app:startIconDrawable="@drawable/ic_group">
 

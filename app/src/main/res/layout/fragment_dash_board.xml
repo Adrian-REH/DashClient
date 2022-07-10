@@ -206,17 +206,35 @@ android:background="@color/purple_200"
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="clientes de IBIOCD"
+                            android:text="Clientes inactivos"
                             android:textColor="@color/white"
                             tools:layout_editor_absoluteX="176dp"
                             tools:layout_editor_absoluteY="149dp" />
 
                         <TextView
-                            android:id="@+id/txtclimaq"
+                            android:id="@+id/txtclides"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="2"
-                            android:text="157"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="74dp"
+                            tools:layout_editor_absoluteY="181dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Clientes activos"
+                            android:textColor="@color/white"
+                            tools:layout_editor_absoluteX="176dp"
+                            tools:layout_editor_absoluteY="149dp" />
+
+                        <TextView
+                            android:id="@+id/txtcliocup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="2"
                             android:textAlignment="center"
                             android:textColor="@color/white"
                             android:textSize="36sp"
@@ -245,21 +263,41 @@ android:background="@color/purple_200"
                         android:padding="10dp">
 
                         <TextView
-                            android:id="@+id/textView10"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="promedio de clientes en un mes"
+                            android:text="Clientes totales"
                             android:textColor="@color/white"
                             tools:layout_editor_absoluteX="176dp"
                             tools:layout_editor_absoluteY="149dp" />
 
                         <TextView
 
-                            android:id="@+id/txtprom"
+                            android:id="@+id/txtclientt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="2"
-                            android:text="157"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="74dp"
+                            tools:layout_editor_absoluteY="181dp" />
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Clientes de IBIOCD"
+                            android:textColor="@color/white"
+                            tools:layout_editor_absoluteX="176dp"
+                            tools:layout_editor_absoluteY="149dp" />
+
+                        <TextView
+
+                            android:id="@+id/txtcliibiocd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="2"
                             android:textAlignment="center"
                             android:textColor="@color/white"
                             android:textSize="36sp"
@@ -448,7 +486,7 @@ android:background="@color/purple_200"
                                         android:id="@+id/textView8"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Archivo"
+                                        android:text="Promedio del archivo"
                                         android:ems="5"
                                         android:textAlignment="center" />
 
