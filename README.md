@@ -3,9 +3,9 @@
 
 ## Vista previa y descripcion de actividad
 ### Principal
-  1. **_Fragmento de Informacion_**
-  2. **_Fragmento de Cliente_**
-  3. **_Fragmento de Administracion de Maquina y Proveedor_**
+  1. **Fragmento de Informacion**
+  2. **Fragmento de Cliente**
+  3. **Fragmento de Administracion de Maquina y Proveedor**
 ### Registro e Informe de Cliente
 ### Registro e Informe de Maquina
 ### Registro e Informe de Proveedor
