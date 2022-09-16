@@ -6,7 +6,7 @@
 </br>
  Es una app diseñada para administrar los datos de clientes y maquinas de todos los proveedores registrados.
 ## Descarga
-[![Google Play](https://img.shields.io/badge/Google_Play-#414141?style=flat-square&logo=googpleplay&logoColor=white&labelColor=#414141)]()
+[![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]()
 ## Vista previa y descripcion de actividad
 ### Principal
   1. **Fragmento de Informacion**
