@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_cliente.xml" value="0.22" />
-        <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_datos_proveedor.xml" value="0.3625" />
+        <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_datos_proveedor.xml" value="0.29713552800342025" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_file.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_maquina.xml" value="0.3625" />
@@ -13,7 +13,7 @@
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/activity_refresh.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/fragment_administracion.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/fragment_clientes.xml" value="0.25" />
-        <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/fragment_dash_board.xml" value="0.33" />
+        <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/fragment_dash_board.xml" value="0.25" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/list_iremprov.xml" value="0.34782608695652173" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/list_item.xml" value="0.25" />
         <entry key="..\:/Users/Usuario/StudioProjects/DashClient/app/src/main/res/layout/list_item_drop.xml" value="0.34782608695652173" />
