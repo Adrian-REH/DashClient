@@ -4,9 +4,9 @@
 [![php](https://img.shields.io/badge/php-F7DF1E?style=flat-square&logo=php&logoColor=black&labelColor=F7DF1E)]()
 [![MySQL](https://img.shields.io/badge/MySQL-279FDF?style=flat-square&logo=mysql&logoColor=white&labelColor=279FDF)]()
 </br>
-asdfasdf
+ Es una app diseñada para administrar los datos de clientes y maquinas de todos los proveedores registrados.
 ## Descarga
-
+[![googpleplay](https://img.shields.io/badge/MySQL-279FDF?style=flat-square&logo=googpleplay&logoColor=414141&labelColor=279FDF)]()
 ## Vista previa y descripcion de actividad
 ### Principal
   1. **Fragmento de Informacion**
