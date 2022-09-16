@@ -11,7 +11,7 @@
 ### Principal
   1. **Fragmento de Informacion**
 
- <p align="left"><img height="400"src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fraginfo.jpg"> </p> 
+ <p align="left"><img height="450"src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fraginfo.jpg"> </p> 
 
   2. **Fragmento de Cliente**
 
