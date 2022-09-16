@@ -9,17 +9,11 @@
 [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]() Proximamente
 ## Vista previa y descripcion de actividad
 ### Principal
-  1. **Fragmento de Informacion**
+  - **Fragmento de Informacion**
+  - **Fragmento de Cliente**
+  - **Fragmento de Administracion de Maquina y Proveedor**
 
- <p align="left"><img height="450"src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fraginfo.jpg"> </p> 
-
-  2. **Fragmento de Cliente**
-
- <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragcliente.jpg"> </p>
- 
-  3. **Fragmento de Administracion de Maquina y Proveedor**
-
- <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragadmin.jpg"> </p>
+ <p align="center"><img height="800" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif"> </p>
 
 ### Registro e Informe de Cliente
 
