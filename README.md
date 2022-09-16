@@ -9,7 +9,7 @@
 [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]() Proximamente
 ## Vista previa y descripcion de actividad
 ### Principal
-  - **Fragmento de Informacion**
+  - **Fragmento de DashBoard**
   - **Fragmento de Cliente**
   - **Fragmento de Administracion de Maquina y Proveedor**
 
