@@ -10,19 +10,30 @@
 ## Vista previa y descripcion de actividad
 ### Principal
   1. **Fragmento de Informacion**
- <p align="center"><img height="400"src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fraginfo.jpg"> </p>
+
+ <p align="left"><img height="400"src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fraginfo.jpg"> </p> 
+
   2. **Fragmento de Cliente**
- <p align="center"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragcliente.jpg"> </p>
+
+ <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragcliente.jpg"> </p>
+ 
   3. **Fragmento de Administracion de Maquina y Proveedor**
- <p align="center"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragadmin.jpg"> </p>
+
+ <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragadmin.jpg"> </p>
 
 ### Registro e Informe de Cliente
- <p align="center"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregcliente.jpg"> </p>
+
+ <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregcliente.jpg"> </p>
+ 
+ 
 ### Registro e Informe de Maquina
- <p align="center"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregmaquina.jpg"> </p>
+
+ <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregmaquina.jpg"> </p>
+ 
 ### Registro de Proveedor
- <p align="center"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregprov.jpg"> </p>
->
+
+ <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregprov.jpg"> </p>
+
 
 ## Librerias o repositorios
   - Volley
