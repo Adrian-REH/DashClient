@@ -7,26 +7,10 @@
  Es una app diseñada para administrar los datos de clientes y maquinas de todos los proveedores registrados.
 ## Descarga
 [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]() Proximamente
-## Vista previa y descripcion de actividad
-### Principal
+## Librerias
+
 <img src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif" align="right" width="21%"/>
 
-  - **Fragmento de DashBoard**
-  - **Fragmento de Cliente**
-  - **Fragmento de Administracion de Maquina y Proveedor**
-
-
-### Registro e Informe de Cliente
-</br>
-
-
-
-### Registro e Informe de Maquina
-### Registro de Proveedor
-
-
-
-## Librerias o repositorios
 - Minimum SDK level 21
 - XML
   - Lifecycle: Observe Android lifecycles and handle UI states upon the lifecycle changes.
