@@ -9,24 +9,20 @@
 [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]() Proximamente
 ## Vista previa y descripcion de actividad
 ### Principal
+<img src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif" align="right" width="320"/>
   - **Fragmento de DashBoard**
   - **Fragmento de Cliente**
   - **Fragmento de Administracion de Maquina y Proveedor**
 
- <p align="center"><img height="800" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif"> </p>
 
 ### Registro e Informe de Cliente
+</br>
 
- <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregcliente.jpg"> </p>
- 
- 
+
+
 ### Registro e Informe de Maquina
-
- <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregmaquina.jpg"> </p>
- 
 ### Registro de Proveedor
 
- <p align="left"><img height="400" src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/infoyregprov.jpg"> </p>
 
 
 ## Librerias o repositorios
