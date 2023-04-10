@@ -5,8 +5,6 @@
 [![MySQL](https://img.shields.io/badge/MySQL-279FDF?style=flat-square&logo=mysql&logoColor=white&labelColor=279FDF)]()
 </br>
  Es una app diseñada para administrar los datos de clientes y maquinas de todos los proveedores registrados.
-## Descarga
-[![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]() Proximamente
 ## Librerias
 
 <img src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif" align="right" width="21%"/>
