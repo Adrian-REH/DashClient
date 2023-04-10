@@ -9,7 +9,8 @@
 [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=414141)]() Proximamente
 ## Vista previa y descripcion de actividad
 ### Principal
-<img src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif" align="right" width="320"/>
+<img src="https://github.com/Adrian-REH/DashClient/blob/main/Recursos/fragment.gif" align="right" width="21%"/>
+
   - **Fragmento de DashBoard**
   - **Fragmento de Cliente**
   - **Fragmento de Administracion de Maquina y Proveedor**
@@ -26,10 +27,20 @@
 
 
 ## Librerias o repositorios
-  - Volley
-  - retrofit
-  - okhttp
-  - gson
+- Minimum SDK level 21
+- XML
+  - Lifecycle: Observe Android lifecycles and handle UI states upon the lifecycle changes.
+  - DataBinding: Binds UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
+  - Room: Constructs Database by providing an abstraction layer over SQLite to allow fluent database access.
+- Architecture
+  - [Bindables](https://github.com/skydoves/bindables): Android DataBinding kit for notifying data changes to UI layers.
+  - Repository Pattern
+- [Retrofit2 & OkHttp3](https://github.com/square/retrofit): Construct the REST APIs and paging network data.
+- [WhatIf](https://github.com/skydoves/whatif): Check nullable objects and empty collections more fluently.
+- [Bundler](https://github.com/skydoves/bundler): Android Intent & Bundle extensions, which insert and retrieve values elegantly.
+- [Material-Components](https://github.com/material-components/material-components-android): Material design components for building ripple animation, and CardView.
+- [Glide](https://github.com/bumptech/glide), [GlidePalette](https://github.com/florent37/GlidePalette): Loading images from network.
+
 # License
 ```xml
 Designed and developed by 2022 adrian-reh (Adrian Ramon Elias Herrera)
